@@ -1,5 +1,6 @@
 import 'package:dogs/presentation/bloc/dogs_bloc.dart';
 import 'package:dogs/presentation/widgets/dog_card.dart';
+import 'package:dogs/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,6 +12,7 @@ class DogsListPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Dogs We Love'),
+        titleTextStyle: Theme.of(context).textTheme.headlineMedium?.copyWith(color: color33,fontWeight: FontWeight.w500),
         centerTitle: true,
       ),
       body: BlocBuilder<DogsBloc, DogsState>(
