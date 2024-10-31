@@ -1,4 +1,5 @@
 import 'package:dogs/presentation/bloc/dogs_bloc.dart';
+import 'package:dogs/presentation/widgets/dog_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,7 +22,7 @@ class DogsListPage extends StatelessWidget {
               padding: const EdgeInsets.all(16),
               itemCount: state.dogs.length,
               itemBuilder: (context, index) {
-                return ListTile(title: Text(state.dogs[index].dogName),subtitle: Text(state.dogs[index].description),leading: CircleAvatar(foregroundImage: NetworkImage(state.dogs[index].image),),);
+                return DogCard(dog: state.dogs[index]);
               },
             );
           } else if (state is DogsError) {
