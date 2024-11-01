@@ -5,10 +5,12 @@ import 'package:dogs/domain/models/dog.dart';
 import 'package:dogs/domain/repositories/dogs_repository.dart';
 
 class DogsRepositoryImpl implements DogsRepository {
-  final DogsApiService apiService = DogsApiService();
+  final DogsApiService apiService;
   final DatabaseHelper dbHelper;
 
-    DogsRepositoryImpl({
+  
+  DogsRepositoryImpl({
+    required this.apiService,
     required this.dbHelper,
   });
 
