@@ -1,5 +1,5 @@
 import 'package:dogs/domain/models/dog.dart';
-import 'package:dogs/domain/models/repositories/dogs_repository.dart';
+import 'package:dogs/domain/repositories/dogs_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 
