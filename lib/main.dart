@@ -6,13 +6,14 @@ import 'package:dogs/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 void main() async {
-   final dbHelper = DatabaseHelper();
+  final dbHelper = DatabaseHelper();
   await dbHelper.init();
-  runApp(const MyApp());
+  runApp(MyApp(dbHelper: dbHelper));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final DatabaseHelper dbHelper;
+  const MyApp({super.key, required this.dbHelper});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: BlocProvider(
-        create: (context) => DogsBloc(DogsRepositoryImpl())..add(LoadDogs()),
+        create: (context) => DogsBloc(DogsRepositoryImpl(dbHelper: dbHelper))..add(LoadDogs()),
         child: const DogsListPage(),
       ),
     );

@@ -6,7 +6,11 @@ import 'package:dogs/domain/repositories/dogs_repository.dart';
 
 class DogsRepositoryImpl implements DogsRepository {
   final DogsApiService apiService = DogsApiService();
-  final DatabaseHelper dbHelper = DatabaseHelper();
+  final DatabaseHelper dbHelper;
+
+    DogsRepositoryImpl({
+    required this.dbHelper,
+  });
 
   @override
   Future<List<Dog>> getDogs() async {
