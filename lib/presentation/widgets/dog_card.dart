@@ -1,7 +1,7 @@
 import 'package:dogs/domain/models/dog.dart';
 import 'package:dogs/presentation/pages/dog_detail.dart';
 import 'package:dogs/utils.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class DogCard extends StatelessWidget {
   final Dog dog;
@@ -11,14 +11,16 @@ class DogCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return GestureDetector(
+    return 
+    GestureDetector(
       onTap: () => Navigator.push(
         context,
-        MaterialPageRoute(
+        CupertinoPageRoute(
           builder: (_) => DogDetail(dog: dog),
         ),
       ),
-      child: Container(
+      child: 
+      Container(
         width: size.width,
         padding: const EdgeInsets.symmetric(
           horizontal: 4.0,
@@ -42,7 +44,7 @@ class DogCard extends StatelessWidget {
             Container(
               width: 240,
               decoration: const BoxDecoration(
-                color: Colors.white,
+                color: CupertinoColors.white,
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(8.0),
                   bottomRight: Radius.circular(8.0),
@@ -60,30 +62,30 @@ class DogCard extends StatelessWidget {
                 children: [
                   Text(
                     dog.dogName,
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleLarge
-                        ?.copyWith(color: color33, fontWeight: FontWeight.w700),
+                    style: const TextStyle(
+                        fontSize: 28.0,
+                        color: color33,
+                        fontWeight: FontWeight.w700),
                   ),
                   const SizedBox(
                     height: 10.0,
                   ),
                   Text(
                     dog.description,
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium
-                        ?.copyWith(color: color66, fontWeight: FontWeight.w500),
+                    style: const TextStyle(
+                        fontSize: 20.0,
+                        color: color66,
+                        fontWeight: FontWeight.w500),
                   ),
                   const SizedBox(
                     height: 18.0,
                   ),
                   Text(
                     'Almost ${dog.age} years',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyLarge
-                        ?.copyWith(color: color33, fontWeight: FontWeight.w700),
+                    style: const TextStyle(
+                        fontSize: 24.0,
+                        color: color33,
+                        fontWeight: FontWeight.w700),
                   ),
                   const SizedBox(
                     height: 18.0,
